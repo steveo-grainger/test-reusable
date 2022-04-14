@@ -1,0 +1,21 @@
+on:
+  workflow_call:
+    inputs:
+      test-input:
+        required: false
+        type: string
+        default: "this is an input"
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: print("Hello World")
+        shell: python
+
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            console.log("Hello World")
+            return "Hello World"
+          result-encoding: string
