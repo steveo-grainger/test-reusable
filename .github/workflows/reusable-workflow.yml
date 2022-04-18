@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: print("Hello World")
+        name: Run Python Script
         shell: python
 
       - uses: actions/github-script@v6
+        name: "Run GitHub Script"
         with:
           script: |
             console.log("Hello World")
