@@ -5,6 +5,10 @@ on:
         required: false
         type: string
         default: "this is an input"
+      fail:
+        required: true
+        type: string
+        default: no
 
 jobs:
   example-job:
@@ -21,3 +25,7 @@ jobs:
             console.log("Hello World")
             return "Hello World"
           result-encoding: string
+
+      - name: Fail the job
+        if: ${{ inputs.fail == 'second' }}
+        run: exit 1
